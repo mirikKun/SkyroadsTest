@@ -3,7 +3,7 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Data;
 using Code.Progress.Provider;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Project.Code.Infrastructure.States.GameStates
 {
     public class InitializeProgressState : IState
     {
@@ -22,7 +22,7 @@ namespace Code.Infrastructure.States.GameStates
         {
             InitializeProgress();
 
-            _stateMachine.Enter<LoadingHomeScreenState>();
+            _stateMachine.Enter<LoadingMainMenuScreenState>();
         }
 
         private void InitializeProgress()

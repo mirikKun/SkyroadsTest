@@ -1,8 +1,8 @@
 using Code.Infrastructure.States.StateInfrastructure;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Project.Code.Infrastructure.States.GameStates
 {
-    public class HomeScreenState : IState, IUpdateable
+    public class MainMenuScreenState : IState, IUpdateable
     {
         public void Enter()
         {

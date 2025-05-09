@@ -1,6 +1,6 @@
 using Code.Infrastructure.States.StateInfrastructure;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Project.Code.Infrastructure.States.GameStates
 {
     public class GameloopLoopState : IState, IUpdateable
     {

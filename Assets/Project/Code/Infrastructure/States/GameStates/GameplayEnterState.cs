@@ -2,7 +2,7 @@ using Code.Gameplay.Levels;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Project.Code.Infrastructure.States.GameStates
 {
     public class GameplayEnterState : IState
     {

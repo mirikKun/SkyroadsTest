@@ -2,15 +2,15 @@ using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Project.Code.Infrastructure.States.GameStates
 {
-    public class LoadingHomeScreenState : IState
+    public class LoadingMainMenuScreenState : IState
     {
-        private const string HomeScreenSceneName = "HomeScreen";
+        private const string MainMenuSceneName = "MainMenu";
         private readonly IGameStateMachine _stateMachine;
         private readonly ISceneLoader _sceneLoader;
 
-        public LoadingHomeScreenState(IGameStateMachine stateMachine, ISceneLoader sceneLoader)
+        public LoadingMainMenuScreenState(IGameStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
@@ -18,12 +18,12 @@ namespace Code.Infrastructure.States.GameStates
 
         public void Enter()
         {
-            _sceneLoader.LoadScene(HomeScreenSceneName, EnterHomeScreenState);
+            _sceneLoader.LoadScene(MainMenuSceneName, EnterHomeScreenState);
         }
 
         private void EnterHomeScreenState()
         {
-            _stateMachine.Enter<HomeScreenState>();
+            _stateMachine.Enter<MainMenuScreenState>();
         }
 
         public void Exit()
