@@ -86,6 +86,15 @@ remote_config_data
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Models folder with high weigh files
+/[Aa]ssets/[Pp]roject/[Mm]odels
+/[Aa]ssets/[Pp]roject/[Mm]odels.meta
+
+# Textures folder with high weigh files
+/[Aa]ssets/[Pp]roject/[Tt]extures
+/[Aa]ssets/[Pp]roject/[Tt]extures.meta
+
 .DS_Store
 RiderScriptEditorPersistedState.asset
 mono_crash*.json
