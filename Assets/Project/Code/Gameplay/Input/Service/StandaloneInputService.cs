@@ -36,7 +36,7 @@ namespace Code.Gameplay.Input.Service
 
         public float GetVerticalAxis() => UnityEngine.Input.GetAxis("Vertical");
         public float GetHorizontalAxis() => UnityEngine.Input.GetAxis("Horizontal");
-        public bool HasSpaceInput() => UnityEngine.Input.GetKey("Space");
+        public bool HasSpaceInput() => UnityEngine.Input.GetKey(KeyCode.Space);
 
 
         public bool GetLeftMouseButton() =>
