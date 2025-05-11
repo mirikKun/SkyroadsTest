@@ -13,12 +13,14 @@ namespace Code.Gameplay.GameOver.Systems
         private readonly IPlayerMoverSystem _playerMoverSystem;
         private readonly IEffectsFactory _effectsFactory;
 
-        public GameOverSystem(IGameStateMachine stateMachine,IPlayerMoverSystem playerMoverSystem,IEffectsFactory effectsFactory)
+        public GameOverSystem(IGameStateMachine stateMachine, IPlayerMoverSystem playerMoverSystem,
+            IEffectsFactory effectsFactory)
         {
             _stateMachine = stateMachine;
             _playerMoverSystem = playerMoverSystem;
             _effectsFactory = effectsFactory;
         }
+
         public void GameOver()
         {
             PlayerContainer player = _playerMoverSystem.Player;

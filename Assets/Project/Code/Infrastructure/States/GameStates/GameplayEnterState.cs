@@ -5,7 +5,7 @@ using Code.Gameplay.Levels;
 using Code.Gameplay.Player.Behaviours;
 using Code.Gameplay.Player.Factories;
 using Code.Gameplay.Player.Systems;
-using Code.Gameplay.ScoreCounter.Systems;
+using Code.Gameplay.Score.Systems;
 using Code.Gameplay.Windows;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;

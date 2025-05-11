@@ -1,12 +1,11 @@
-using System;
 using Code.Gameplay.Common.Time;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.ScoreCounter.Behaviours
+namespace Code.Gameplay.Score.Behaviours
 {
-    public class CurrentTimeDisplay:MonoBehaviour
+    public class CurrentTimeDisplay : MonoBehaviour
     {
         [SerializeField] private TMP_Text _timeText;
         private ITimeService _timeService;

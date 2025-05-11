@@ -1,12 +1,11 @@
-using System;
-using Code.Gameplay.ScoreCounter.Systems;
+using Code.Gameplay.Score.Systems;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.ScoreCounter.Behaviours
+namespace Code.Gameplay.Score.Behaviours
 {
-    public class ScoreDisplay:MonoBehaviour
+    public class ScoreDisplay : MonoBehaviour
     {
         [SerializeField] private TMP_Text _scoreText;
         [SerializeField] private TMP_Text _highScoreText;
@@ -30,9 +29,9 @@ namespace Code.Gameplay.ScoreCounter.Behaviours
 
         private void Display()
         {
-            if(_scoreText)
+            if (_scoreText)
                 _scoreText.text = $"{_scoreCounterSystem.Score.ToString("0.0")}";
-            if(_highScoreText)
+            if (_highScoreText)
                 _highScoreText.text = $"{_scoreCounterSystem.HighScore.ToString("0.0")}";
         }
     }

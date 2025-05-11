@@ -2,20 +2,19 @@ using Code.Gameplay.LevelGenerator.Configs;
 using Code.Gameplay.LevelGenerator.Factories;
 using Code.Gameplay.LevelGenerator.LevelChunks;
 using Code.Gameplay.LevelGenerator.Obstacles;
-using Code.Gameplay.ScoreCounter.Systems;
+using Code.Gameplay.Score.Systems;
 using Code.Gameplay.StaticData;
 using UnityEngine;
-using Zenject;
 
 namespace Code.Gameplay.LevelGenerator.Systems
 {
     public class ObstacleGeneratorSystem : IObstacleGeneratorSystem
     {
-        private LevelGeneratorConfig _getLevelGeneratorConfig;
-        private LevelDifficultyConfig _getLevelDifficultyConfig;
+        private readonly LevelGeneratorConfig _getLevelGeneratorConfig;
+        private readonly LevelDifficultyConfig _getLevelDifficultyConfig;
+        private readonly IScoreCounterSystem _scoreCounterSystem;
+        private readonly ILevelFactory _levelFactory;
         private float _distanceMultiplier;
-        private IScoreCounterSystem _scoreCounterSystem;
-        private ILevelFactory _levelFactory;
 
         public ObstacleGeneratorSystem(IStaticDataService staticDataService,IScoreCounterSystem scoreCounterSystem,ILevelFactory levelFactory)
         {

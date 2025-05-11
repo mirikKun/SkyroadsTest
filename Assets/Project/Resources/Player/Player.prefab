@@ -250,7 +250,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8481166100015724649}
-  - component: {fileID: 2634304399982230394}
   - component: {fileID: -4412105168792534190}
   - component: {fileID: 7733456857384708602}
   - component: {fileID: 1552428079901837181}
@@ -279,24 +278,6 @@ Transform:
   - {fileID: 415493070524705946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2634304399982230394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7383733940972226305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e648443d40e410897a22f69905fb485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 8481166100015724649}
-  _horizontalStaticTransform: {fileID: 415493070524705946}
-  _forwardSpeed: 16
-  _sideSpeed: 7
-  _boostSpeedMultiplier: 2
-  _roadBorders: {x: -9, y: 9}
 --- !u!114 &-4412105168792534190
 MonoBehaviour:
   m_ObjectHideFlags: 0

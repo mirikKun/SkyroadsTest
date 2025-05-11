@@ -7,7 +7,7 @@ namespace Code.Gameplay.Levels
     {
         public Transform PlayerSpawnTransform { get; private set; }
         public Transform LevelGeneratorTransform { get; private set; }
-        
+
         public CinemachineVirtualCamera MainCamera { get; private set; }
 
 
@@ -23,7 +23,7 @@ namespace Code.Gameplay.Levels
 
         public void SetCamera(CinemachineVirtualCamera mainCamera)
         {
-            MainCamera= mainCamera;
+            MainCamera = mainCamera;
         }
     }
 }

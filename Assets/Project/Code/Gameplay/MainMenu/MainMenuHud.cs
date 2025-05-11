@@ -1,4 +1,4 @@
-using Code.Gameplay.ScoreCounter.Systems;
+using Code.Gameplay.Score.Systems;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Provider;
@@ -13,7 +13,7 @@ namespace Code.Gameplay.MainMenu
     {
         [SerializeField] private Button _gameStartButton;
         [SerializeField] private Button _progressResetButton;
-        
+
         [SerializeField] private TMP_Text _highScoreText;
         private IGameStateMachine _gameStateMachine;
         private IProgressProvider _progressProvider;
@@ -21,7 +21,8 @@ namespace Code.Gameplay.MainMenu
         private const string GameplaySceneName = "Gameplay";
 
         [Inject]
-        private void Construct(IGameStateMachine gameStateMachine, IProgressProvider progressProvider,IScoreCounterSystem scoreCounterSystem)
+        private void Construct(IGameStateMachine gameStateMachine, IProgressProvider progressProvider,
+            IScoreCounterSystem scoreCounterSystem)
         {
             _scoreCounterSystem = scoreCounterSystem;
             _progressProvider = progressProvider;
@@ -49,13 +50,12 @@ namespace Code.Gameplay.MainMenu
         {
             _gameStateMachine.Enter<LoadingGameplayState, string>(GameplaySceneName);
         }
+
         private void ResetProgress()
         {
             _progressProvider.DeleteProgress();
             _gameStateMachine.Enter<InitializeProgressState>();
             DisplayHighScore();
-
         }
-        
     }
 }

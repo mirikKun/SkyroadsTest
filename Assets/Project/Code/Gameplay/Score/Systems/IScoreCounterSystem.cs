@@ -1,4 +1,4 @@
-namespace Code.Gameplay.ScoreCounter.Systems
+namespace Code.Gameplay.Score.Systems
 {
     public interface IScoreCounterSystem
     {

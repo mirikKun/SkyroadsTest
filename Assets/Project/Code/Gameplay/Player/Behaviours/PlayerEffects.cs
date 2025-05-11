@@ -8,29 +8,24 @@ using Zenject;
 
 namespace Code.Gameplay.Player.Behaviours
 {
-    public class PlayerEffects: MonoBehaviour
+    public class PlayerEffects : MonoBehaviour
     {
         [SerializeField] private Transform _view;
 
-        [Space]
-        [SerializeField] private float _boostedFov = 70f;
+        [Space] [SerializeField] private float _boostedFov = 70f;
 
         [SerializeField] private float _normalFov = 40f;
         [SerializeField] private float _fovChangeDuration = 0.5f;
         [SerializeField] private Ease _fovChangeEase = Ease.OutBack;
 
-        [Space]
-
-        
-        [SerializeField] private float _playerStartTiltDuration = 0.5f;
+        [Space] [SerializeField] private float _playerStartTiltDuration = 0.5f;
 
         [SerializeField] private float _playerEndTiltDuration = 0.2f;
         [SerializeField] private float _playerTiltAngle = 16f;
         [SerializeField] private Ease _playerStartTiltEase = Ease.OutBack;
         [SerializeField] private Ease _playerEndTiltEase = Ease.OutBack;
 
-        [Space]
-        [SerializeField] private GameObject _trailEffect ;
+        [Space] [SerializeField] private GameObject _trailEffect;
 
 
         private CinemachineVirtualCamera _camera;
@@ -39,51 +34,55 @@ namespace Code.Gameplay.Player.Behaviours
         private IPlayerMoverSystem _playerMoverSystem;
 
         [Inject]
-        private void Construct(IPlayerMoverSystem playerMoverSystem, ILevelDataProvider levelDataProvider, IInputService inputService)
+        private void Construct(IPlayerMoverSystem playerMoverSystem, ILevelDataProvider levelDataProvider,
+            IInputService inputService)
         {
             _playerMoverSystem = playerMoverSystem;
             _camera = levelDataProvider.MainCamera;
-      
         }
 
         private void Start()
         {
-            _playerMoverSystem.StartedBoost+= OnPlayerStartedBoost;
-            _playerMoverSystem.StoppedBoost+= OnPlayerStoppedBoost;
-            _playerMoverSystem.SideMoveStarted+= OnPlayerSideMoveStarted;
-            _playerMoverSystem.SideMoveStopped+= OnPlayerSideMoveStopped;
+            _playerMoverSystem.StartedBoost += OnPlayerStartedBoost;
+            _playerMoverSystem.StoppedBoost += OnPlayerStoppedBoost;
+            _playerMoverSystem.SideMoveStarted += OnPlayerSideMoveStarted;
+            _playerMoverSystem.SideMoveStopped += OnPlayerSideMoveStopped;
         }
+
         private void OnDestroy()
         {
-            _playerMoverSystem.StartedBoost-= OnPlayerStartedBoost;
-            _playerMoverSystem.StoppedBoost-= OnPlayerStoppedBoost;
-            _playerMoverSystem.SideMoveStarted-= OnPlayerSideMoveStarted;
-            _playerMoverSystem.SideMoveStopped-= OnPlayerSideMoveStopped;
+            _playerMoverSystem.StartedBoost -= OnPlayerStartedBoost;
+            _playerMoverSystem.StoppedBoost -= OnPlayerStoppedBoost;
+            _playerMoverSystem.SideMoveStarted -= OnPlayerSideMoveStarted;
+            _playerMoverSystem.SideMoveStopped -= OnPlayerSideMoveStopped;
 
             _fovChangeTween.Kill();
             _rotateTween.Kill();
         }
+
         private void OnPlayerSideMoveStopped()
         {
             RotatePlayerView(0, _playerEndTiltDuration, _playerEndTiltEase);
-
         }
+
         private void OnPlayerSideMoveStarted(int direction)
         {
-            RotatePlayerView(direction* _playerTiltAngle, _playerStartTiltDuration, _playerStartTiltEase);
+            RotatePlayerView(direction * _playerTiltAngle, _playerStartTiltDuration, _playerStartTiltEase);
         }
+
         private void OnPlayerStoppedBoost()
         {
-            ChangeFOV(_camera,_normalFov, _fovChangeDuration);
+            ChangeFOV(_camera, _normalFov, _fovChangeDuration);
             _trailEffect.SetActive(false);
         }
+
         private void OnPlayerStartedBoost()
         {
-            ChangeFOV(_camera,_boostedFov, _fovChangeDuration);
+            ChangeFOV(_camera, _boostedFov, _fovChangeDuration);
             _trailEffect.SetActive(true);
-
         }
-        private void RotatePlayerView(float angle, float duration,Ease ease)
+
+        private void RotatePlayerView(float angle, float duration, Ease ease)
         {
             if (_rotateTween != null && _rotateTween.IsActive())
                 _rotateTween.Kill();
@@ -94,7 +93,7 @@ namespace Code.Gameplay.Player.Behaviours
         {
             if (_fovChangeTween != null && _fovChangeTween.IsActive())
                 _fovChangeTween.Kill();
-            
+
             _fovChangeTween = DOTween.To(
                     () => vcam.m_Lens.FieldOfView,
                     (value) => vcam.m_Lens.FieldOfView = value,
@@ -104,6 +103,5 @@ namespace Code.Gameplay.Player.Behaviours
                 .SetEase(_fovChangeEase)
                 .OnComplete(() => _fovChangeTween = null);
         }
-     
     }
 }

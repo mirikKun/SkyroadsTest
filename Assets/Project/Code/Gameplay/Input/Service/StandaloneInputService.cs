@@ -8,7 +8,7 @@ namespace Code.Gameplay.Input.Service
         private Camera _mainCamera;
         private Vector3 _screenPosition;
 
-        public Camera CameraMain
+        private Camera CameraMain
         {
             get
             {

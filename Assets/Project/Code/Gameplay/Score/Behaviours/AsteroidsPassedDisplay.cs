@@ -1,12 +1,11 @@
-using System;
-using Code.Gameplay.ScoreCounter.Systems;
+using Code.Gameplay.Score.Systems;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.ScoreCounter.Behaviours
+namespace Code.Gameplay.Score.Behaviours
 {
-    public class AsteroidsPassedDisplay:MonoBehaviour
+    public class AsteroidsPassedDisplay : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
         private IPassedObstaclesCounterSystem _obstaclesCounter;
@@ -29,7 +28,7 @@ namespace Code.Gameplay.ScoreCounter.Behaviours
 
         private void Display()
         {
-            _text.text=_obstaclesCounter.PassedObstaclesCount.ToString();
+            _text.text = _obstaclesCounter.PassedObstaclesCount.ToString();
         }
     }
 }

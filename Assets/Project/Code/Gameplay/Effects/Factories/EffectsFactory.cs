@@ -12,6 +12,7 @@ namespace Code.Gameplay.Effects.Factories
         {
             _assetProvider = assetProvider;
         }
+
         public void CreatePlayerDeathEffect(Vector3 position)
         {
             var effectPrefab = _assetProvider.LoadAsset(PlayerDeathEffectPath);

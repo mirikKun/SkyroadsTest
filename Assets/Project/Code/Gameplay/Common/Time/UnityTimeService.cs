@@ -8,6 +8,7 @@ namespace Code.Gameplay.Common.Time
 
         public float DeltaTime => !_paused ? UnityEngine.Time.deltaTime : 0;
         public float CurrentGameTime { get; private set; }
+
         public void ResetGameTime()
         {
             CurrentGameTime = 0;
@@ -15,7 +16,8 @@ namespace Code.Gameplay.Common.Time
 
         public void UpdateGameTime()
         {
-            CurrentGameTime += DeltaTime;;
+            CurrentGameTime += DeltaTime;
+            ;
         }
 
         public DateTime UtcNow => DateTime.UtcNow;

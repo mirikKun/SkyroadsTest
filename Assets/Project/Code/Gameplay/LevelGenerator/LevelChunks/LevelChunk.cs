@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Code.Gameplay.LevelGenerator.LevelChunks
 {
-    public class LevelChunk:MonoBehaviour
+    public class LevelChunk : MonoBehaviour
     {
-        [SerializeField] private  Vector2 _chunkSize=new Vector2(18,40);
+        [SerializeField] private Vector2 _chunkSize = new Vector2(18, 40);
 
 
-        private List<Obstacle> _obstacles = new List<Obstacle>();
+        private readonly List<Obstacle> _obstacles = new List<Obstacle>();
         private float _radiusMultiplier;
         public float ChunkLength => _chunkSize.y;
         public Vector2 ChunkSize => _chunkSize;
@@ -22,16 +22,17 @@ namespace Code.Gameplay.LevelGenerator.LevelChunks
                 obstacle.CheckOnPlayerPassing();
             }
         }
+
         public void SetObstaclesRadiusMultiplier(float multiplier)
         {
-            _radiusMultiplier= multiplier;
+            _radiusMultiplier = multiplier;
         }
 
         private void OnDrawGizmosSelected()
         {
             foreach (var obstacle in _obstacles)
             {
-                Gizmos.DrawWireSphere(obstacle.transform.position,obstacle.ObstacleRadius*_radiusMultiplier); 
+                Gizmos.DrawWireSphere(obstacle.transform.position, obstacle.ObstacleRadius * _radiusMultiplier);
             }
         }
     }

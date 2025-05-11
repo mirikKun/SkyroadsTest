@@ -6,30 +6,33 @@ using Code.Gameplay.Levels;
 using Code.Gameplay.Player.Systems;
 using Code.Gameplay.StaticData;
 using UnityEngine;
-using Zenject;
 
 namespace Code.Gameplay.LevelGenerator.Systems
 {
     public class LevelGeneratorSystem : ILevelGeneratorSystem
     {
-        
+        private readonly IPlayerMoverSystem _playerMoverSystem;
+
+        private readonly ILevelFactory _levelFactory;
+        private readonly ILevelDataProvider _levelDataProvider;
+        private readonly LevelGeneratorConfig _generatorConfig;
+        private readonly IObstacleGeneratorSystem _obstacleGeneratorSystem;
         private Vector3 _lastRoadPosition;
         private readonly List<LevelChunk> _chunks = new List<LevelChunk>();
-        private IPlayerMoverSystem _playerMoverSystem;
-        private ILevelFactory _levelFactory;
-        private ILevelDataProvider _levelDataProvider;
-        private LevelGeneratorConfig _generatorConfig;
-        private IObstacleGeneratorSystem _obstacleGeneratorSystem;
-        private bool CanSpawnRoad => _playerMoverSystem.PlayerPosition.z > _lastRoadPosition.z - _generatorConfig.AheadOffset;
+
+        private bool CanSpawnRoad =>
+            _playerMoverSystem.PlayerPosition.z > _lastRoadPosition.z - _generatorConfig.AheadOffset;
 
         private bool CanRemoveRoad =>
-            _chunks.Count > 0 && _playerMoverSystem.PlayerPosition.z > _chunks[0].transform.position.z + _generatorConfig.BackwardOffset;
+            _chunks.Count > 0 && _playerMoverSystem.PlayerPosition.z >
+            _chunks[0].transform.position.z + _generatorConfig.BackwardOffset;
 
-        public LevelGeneratorSystem(IPlayerMoverSystem playerMoverSystem,ILevelFactory levelFactory,ILevelDataProvider levelDataProvider,
+        public LevelGeneratorSystem(IPlayerMoverSystem playerMoverSystem, ILevelFactory levelFactory,
+            ILevelDataProvider levelDataProvider,
             IStaticDataService staticDataService, IObstacleGeneratorSystem obstacleGeneratorSystem)
         {
             _obstacleGeneratorSystem = obstacleGeneratorSystem;
-            _generatorConfig= staticDataService.GetLevelGeneratorConfig();
+            _generatorConfig = staticDataService.GetLevelGeneratorConfig();
             _levelDataProvider = levelDataProvider;
             _levelFactory = levelFactory;
             _playerMoverSystem = playerMoverSystem;
@@ -43,8 +46,10 @@ namespace Code.Gameplay.LevelGenerator.Systems
             {
                 Object.Destroy(chunk.gameObject);
             }
+
             _chunks.Clear();
         }
+
         public void UpdateBehaviours()
         {
             foreach (var chunk in _chunks)
@@ -59,7 +64,6 @@ namespace Code.Gameplay.LevelGenerator.Systems
             {
                 SpawnRoad();
             }
-            
         }
 
         public void TryDestroy()
@@ -67,7 +71,7 @@ namespace Code.Gameplay.LevelGenerator.Systems
             while (CanRemoveRoad)
             {
                 RemoveRoad();
-            }        
+            }
         }
 
         private void SpawnRoad()
@@ -77,7 +81,7 @@ namespace Code.Gameplay.LevelGenerator.Systems
             _lastRoadPosition = chunk.transform.position;
             if (_chunks.Count > 0)
             {
-                _obstacleGeneratorSystem.GenerateObstacles(_chunks[^1], chunk); 
+                _obstacleGeneratorSystem.GenerateObstacles(_chunks[^1], chunk);
             }
 
             _chunks.Add(chunk);
@@ -87,6 +91,7 @@ namespace Code.Gameplay.LevelGenerator.Systems
         {
             LevelChunk road = _chunks[0];
             _chunks.RemoveAt(0);
-            Object.Destroy(road.gameObject);        }
+            Object.Destroy(road.gameObject);
+        }
     }
 }

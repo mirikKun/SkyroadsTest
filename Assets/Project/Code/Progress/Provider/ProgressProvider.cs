@@ -32,8 +32,6 @@ namespace Code.Progress.Provider
             {
                 SetProgressData(new ProgressData());
             }
-           
-            
         }
 
         public bool HasProgress()
@@ -44,7 +42,6 @@ namespace Code.Progress.Provider
         public void DeleteProgress()
         {
             SetProgressData(new ProgressData());
-
         }
     }
 }
