@@ -1,9 +1,8 @@
-using System;
-using Project.Code.Gameplay.Player.Behaviours;
+using Code.Gameplay.Player.Behaviours;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Project.Code.Gameplay.Obstacles
+namespace Code.Gameplay.LevelGenerator.Obstacles
 {
     public class Obstacle:MonoBehaviour
     {

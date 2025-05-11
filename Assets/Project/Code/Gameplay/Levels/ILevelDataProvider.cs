@@ -1,10 +1,15 @@
+using Cinemachine;
 using UnityEngine;
 
 namespace Code.Gameplay.Levels
 {
     public interface ILevelDataProvider
     {
-        Vector3 StartPoint { get; }
-        void SetStartPoint(Vector3 startPoint);
+        Transform PlayerSpawnTransform { get; }
+        Transform LevelGeneratorTransform { get; }
+        CinemachineVirtualCamera MainCamera { get; }
+        void SetStartPoint(Transform spawnTransform);
+        void SetLevelGeneratorTransform(Transform levelGeneratorTransform);
+        void SetCamera(CinemachineVirtualCamera mainCamera);
     }
 }

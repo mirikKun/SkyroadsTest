@@ -1,6 +1,6 @@
 using Code.Infrastructure.States.StateInfrastructure;
 
-namespace Project.Code.Infrastructure.States.GameStates
+namespace Code.Infrastructure.States.GameStates
 {
     public class MainMenuScreenState : IState, IUpdateable
     {

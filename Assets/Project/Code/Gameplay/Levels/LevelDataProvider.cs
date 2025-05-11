@@ -1,14 +1,29 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 namespace Code.Gameplay.Levels
 {
     public class LevelDataProvider : ILevelDataProvider
     {
-        public Vector3 StartPoint { get; private set; }
+        public Transform PlayerSpawnTransform { get; private set; }
+        public Transform LevelGeneratorTransform { get; private set; }
+        
+        public CinemachineVirtualCamera MainCamera { get; private set; }
 
-        public void SetStartPoint(Vector3 startPoint)
+
+        public void SetStartPoint(Transform spawnTransform)
         {
-            StartPoint = startPoint;
+            PlayerSpawnTransform = spawnTransform;
+        }
+
+        public void SetLevelGeneratorTransform(Transform levelGeneratorTransform)
+        {
+            LevelGeneratorTransform = levelGeneratorTransform;
+        }
+
+        public void SetCamera(CinemachineVirtualCamera mainCamera)
+        {
+            MainCamera= mainCamera;
         }
     }
 }

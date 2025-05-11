@@ -3,7 +3,7 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Data;
 using Code.Progress.Provider;
 
-namespace Project.Code.Infrastructure.States.GameStates
+namespace Code.Infrastructure.States.GameStates
 {
     public class InitializeProgressState : IState
     {

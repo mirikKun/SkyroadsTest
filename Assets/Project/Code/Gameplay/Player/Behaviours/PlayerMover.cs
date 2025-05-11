@@ -3,8 +3,10 @@ using Code.Gameplay.Input.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Code.Gameplay.Player.Behaviours
+namespace Code.Gameplay.Player.Behaviours
 {
+    
+    //Only for testing purposes
     public class PlayerMover:MonoBehaviour
     {
         [SerializeField] private Transform _playerTransform;

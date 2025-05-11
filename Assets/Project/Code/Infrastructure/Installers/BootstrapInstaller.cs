@@ -1,15 +1,19 @@
-using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Input.Service;
+using Code.Gameplay.LevelGenerator.Factories;
+using Code.Gameplay.LevelGenerator.Systems;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Player.Factories;
+using Code.Gameplay.Player.Systems;
+using Code.Gameplay.ScoreCounter.Systems;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.Factory;
+using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Provider;
-using Project.Code.Infrastructure.States.GameStates;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -23,11 +27,12 @@ namespace Code.Infrastructure.Installers
             BindStateFactory();
             BindStateMachine();
             BindGameStates();
+            BindGameplayFactories();
             BindInfrastructureServices();
             BindAssetManagementServices();
             BindCommonServices();
             BindGameplayServices();
-            BindCameraProvider();
+            BindGameplaySystems();
         }
         
         private void BindStateMachine()
@@ -51,9 +56,19 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameloopLoopState>().AsSingle();
         }
 
-        private void BindCameraProvider()
+
+        private void BindGameplaySystems()
         {
-            Container.BindInterfacesAndSelfTo<CameraProvider>().AsSingle();
+            Container.Bind<IPlayerMoverSystem>().To<PlayerMoverSystem>().AsSingle();
+            Container.Bind<ILevelGeneratorSystem>().To<LevelGeneratorSystem>().AsSingle();
+            Container.Bind<IObstacleGeneratorSystem>().To<ObstacleGeneratorSystem>().AsSingle();
+            Container.Bind<IScoreCounterSystem>().To<ScoreCounterSystem>().AsSingle();
+        }
+
+        private void BindGameplayFactories()
+        {
+            Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
+            Container.Bind<ILevelFactory>().To<LevelFactory>().AsSingle();
         }
 
         private void BindGameplayServices()

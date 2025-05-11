@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3906a95bdc47c48fb551de336281d9, type: 3}
+  m_Name: LevelGeneratorConfig
+  m_EditorClassIdentifier: 
+  <ObstaclePrefabs>k__BackingField:
+  - {fileID: 6765683939900401215, guid: 041d16e119a65b04aa25db2c23ae0e53, type: 3}
+  - {fileID: 5978827783845676476, guid: d79db36478ac40745acc0fee709dae9e, type: 3}
+  - {fileID: 1892472351854378630, guid: da85eec313a6abc4592ed14c42795f75, type: 3}
+  - {fileID: 1056107837875554544, guid: a2ed6120e444d5443ae8d5be7416f36b, type: 3}
+  - {fileID: 2981988565742600244, guid: 5f5a5770db99d9147975b7bb871532ed, type: 3}
+  - {fileID: 3995750906286673850, guid: f85176c8cdca30c4087564f99041a13a, type: 3}
+  <Offset>k__BackingField: {x: 0, y: 1, z: 0}
+  <ObstacleGridFrequency>k__BackingField: 2
+  <LevelChunkPrefab>k__BackingField: {fileID: 4418083855607515518, guid: 97990d21bdb470047b98affa2d5b33d2, type: 3}
+  <AheadOffset>k__BackingField: 90
+  <BackwardOffset>k__BackingField: 50

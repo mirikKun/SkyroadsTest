@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Project.Code.Gameplay.Obstacles;
+using Code.Gameplay.LevelGenerator.Obstacles;
 using UnityEngine;
 
-namespace Project.Code.Gameplay.LevelGenerator.LevelChunks
+namespace Code.Gameplay.LevelGenerator.LevelChunks
 {
     public class LevelChunk:MonoBehaviour
     {
@@ -10,8 +10,22 @@ namespace Project.Code.Gameplay.LevelGenerator.LevelChunks
 
 
         private List<Obstacle> _obstacles = new List<Obstacle>();
+        private float _radiusMultiplier;
         public float ChunkLength => _chunkSize.y;
         public Vector2 ChunkSize => _chunkSize;
         public List<Obstacle> Obstacles => _obstacles;
+        
+        public void SetObstaclesRadiusMultiplier(float multiplier)
+        {
+            _radiusMultiplier= multiplier;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            foreach (var obstacle in _obstacles)
+            {
+                Gizmos.DrawWireSphere(obstacle.transform.position,obstacle.ObstacleRadius*_radiusMultiplier); 
+            }
+        }
     }
 }

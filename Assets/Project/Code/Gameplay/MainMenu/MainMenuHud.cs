@@ -1,10 +1,10 @@
+using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
-using Project.Code.Infrastructure.States.GameStates;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Code.Gameplay.MainMenu
+namespace Code.Gameplay.MainMenu
 {
     public class MainMenuHud : MonoBehaviour
     {
