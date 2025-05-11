@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aaaf268deb466794b6944fd0b132a7, type: 3}
   m_Name: LevelDifficultyConfig
   m_EditorClassIdentifier: 
-  <MinObstacleRadiusMultiplayer>k__BackingField: 10
+  <MinObstacleRadiusMultiplayer>k__BackingField: 9
   <MaxObstacleRadiusMultiplayer>k__BackingField: 3
   <DifficultyCurve>k__BackingField:
     serializedVersion: 2
