@@ -38,7 +38,11 @@ namespace Code.Gameplay.LevelGenerator.Systems
         public void Init()
         {
             _lastRoadPosition = _levelDataProvider.LevelGeneratorTransform.position;
-            
+
+            foreach (var chunk in _chunks)
+            {
+                Object.Destroy(chunk.gameObject);
+            }
             _chunks.Clear();
         }
 

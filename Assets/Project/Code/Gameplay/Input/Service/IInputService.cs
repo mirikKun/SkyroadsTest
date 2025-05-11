@@ -13,5 +13,6 @@ namespace Code.Gameplay.Input.Service
         Vector2 GetWorldMousePosition();
         bool GetLeftMouseButtonUp();
         bool HasSpaceInput();
+        bool HasAnyInput();
     }
 }

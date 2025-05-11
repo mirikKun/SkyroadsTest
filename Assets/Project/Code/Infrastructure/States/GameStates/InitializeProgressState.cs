@@ -27,7 +27,15 @@ namespace Code.Infrastructure.States.GameStates
 
         private void InitializeProgress()
         {
-            CreateNewProgress();
+            if (_progressProvider.HasProgress())
+            {
+                _progressProvider.LoadProgress();
+            }
+            else
+            {
+                CreateNewProgress();
+
+            }
         }
 
         private void CreateNewProgress()

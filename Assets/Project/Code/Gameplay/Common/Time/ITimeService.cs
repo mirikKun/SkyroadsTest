@@ -5,7 +5,10 @@ namespace Code.Gameplay.Common.Time
     public interface ITimeService
     {
         float DeltaTime { get; }
-        DateTime UtcNow { get; }
+        float CurrentGameTime { get; }
+        
+        void ResetGameTime();
+        void UpdateGameTime();
         void StopTime();
         void StartTime();
     }

@@ -53,6 +53,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<MainMenuScreenState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadingGameplayState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameplayEnterState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameplayWaitForKeyState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameloopLoopState>().AsSingle();
         }
 
@@ -63,6 +64,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<ILevelGeneratorSystem>().To<LevelGeneratorSystem>().AsSingle();
             Container.Bind<IObstacleGeneratorSystem>().To<ObstacleGeneratorSystem>().AsSingle();
             Container.Bind<IScoreCounterSystem>().To<ScoreCounterSystem>().AsSingle();
+            Container.Bind<IPassedObstaclesCounterSystem>().To<PassedObstaclesCounterSystem>().AsSingle();
         }
 
         private void BindGameplayFactories()

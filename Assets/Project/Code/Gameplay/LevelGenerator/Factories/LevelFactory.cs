@@ -1,6 +1,8 @@
 using Code.Gameplay.LevelGenerator.Configs;
 using Code.Gameplay.LevelGenerator.LevelChunks;
 using Code.Gameplay.LevelGenerator.Obstacles;
+using Code.Gameplay.Player.Systems;
+using Code.Gameplay.ScoreCounter.Systems;
 using Code.Gameplay.StaticData;
 using UnityEngine;
 using Zenject;
@@ -10,10 +12,14 @@ namespace Code.Gameplay.LevelGenerator.Factories
     public class LevelFactory : ILevelFactory
     {
         private IStaticDataService _staticDataService;
+        private readonly IPlayerMoverSystem _playerMoverSystem;
+        private readonly IPassedObstaclesCounterSystem _passedObstaclesCounterSystem;
 
-        public LevelFactory(IStaticDataService staticDataService)
+        public LevelFactory(IStaticDataService staticDataService,IPlayerMoverSystem playerMoverSystem,IPassedObstaclesCounterSystem passedObstaclesCounterSystem)
         {
             _staticDataService = staticDataService;
+            _playerMoverSystem = playerMoverSystem;
+            _passedObstaclesCounterSystem = passedObstaclesCounterSystem;
         }
         public LevelChunk CreateLevelChunk(Vector3 lastPosition, Transform parent)
         {
@@ -30,6 +36,7 @@ namespace Code.Gameplay.LevelGenerator.Factories
             Obstacle obstacle = Object.Instantiate(config.ObstaclePrefabs[obstacleIndex], at+config.Offset,
                 Quaternion.Euler(0, Random.Range(0, 360), 0), levelChunk.transform);
             levelChunk.Obstacles.Add(obstacle);
+            obstacle.SetPlayerPassingCheck(_playerMoverSystem.Player.PlayerTransform, _passedObstaclesCounterSystem);
             return obstacle;        
         }
 
