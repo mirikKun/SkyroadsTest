@@ -13,6 +13,7 @@ namespace Code.Gameplay.MainMenu
     {
         [SerializeField] private Button _gameStartButton;
         [SerializeField] private Button _progressResetButton;
+        [SerializeField] private Button _exitButton;
 
         [SerializeField] private TMP_Text _highScoreText;
         private IGameStateMachine _gameStateMachine;
@@ -44,6 +45,7 @@ namespace Code.Gameplay.MainMenu
         {
             _gameStartButton.onClick.AddListener(EnterGameplayScene);
             _progressResetButton.onClick.AddListener(ResetProgress);
+            _exitButton.onClick.AddListener(Exit);
         }
 
         private void EnterGameplayScene()
@@ -56,6 +58,11 @@ namespace Code.Gameplay.MainMenu
             _progressProvider.DeleteProgress();
             _gameStateMachine.Enter<InitializeProgressState>();
             DisplayHighScore();
+        }
+
+        private void Exit()
+        {
+            Application.Quit();
         }
     }
 }
