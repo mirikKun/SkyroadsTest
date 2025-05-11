@@ -45,6 +45,13 @@ namespace Code.Gameplay.LevelGenerator.Systems
             }
             _chunks.Clear();
         }
+        public void UpdateBehaviours()
+        {
+            foreach (var chunk in _chunks)
+            {
+                chunk.CheckObstaclesOnPass();
+            }
+        }
 
         public void TryGenerate()
         {

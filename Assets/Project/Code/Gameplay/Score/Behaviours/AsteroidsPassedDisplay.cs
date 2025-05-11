@@ -17,7 +17,17 @@ namespace Code.Gameplay.ScoreCounter.Behaviours
             _obstaclesCounter = obstaclesCounter;
         }
 
+        private void Start()
+        {
+            Display();
+        }
+
         private void Update()
+        {
+            Display();
+        }
+
+        private void Display()
         {
             _text.text=_obstaclesCounter.PassedObstaclesCount.ToString();
         }

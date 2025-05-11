@@ -5,5 +5,6 @@ namespace Code.Gameplay.LevelGenerator.Systems
         void Init();
         void TryGenerate();
         void TryDestroy();
+        void UpdateBehaviours();
     }
 }

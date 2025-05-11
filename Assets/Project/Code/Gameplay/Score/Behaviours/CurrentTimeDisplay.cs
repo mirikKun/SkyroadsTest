@@ -1,3 +1,4 @@
+using System;
 using Code.Gameplay.Common.Time;
 using TMPro;
 using UnityEngine;
@@ -15,7 +16,18 @@ namespace Code.Gameplay.ScoreCounter.Behaviours
         {
             _timeService = timeService;
         }
+
+        private void Start()
+        {
+            Display();
+        }
+
         private void Update()
+        {
+            Display();
+        }
+
+        private void Display()
         {
             _timeText.text = _timeService.CurrentGameTime.ToString("0:00");
         }

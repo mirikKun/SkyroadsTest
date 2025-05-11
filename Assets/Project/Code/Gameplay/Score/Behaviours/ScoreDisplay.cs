@@ -1,3 +1,4 @@
+using System;
 using Code.Gameplay.ScoreCounter.Systems;
 using TMPro;
 using UnityEngine;
@@ -16,10 +17,23 @@ namespace Code.Gameplay.ScoreCounter.Behaviours
         {
             _scoreCounterSystem = scoreCounterSystem;
         }
+
+        private void Start()
+        {
+            Display();
+        }
+
         private void Update()
         {
-            _scoreText.text = $"{_scoreCounterSystem.Score.ToString("0.0")}";
-            _highScoreText.text = $"{_scoreCounterSystem.HighScore.ToString("0.0")}";
+            Display();
+        }
+
+        private void Display()
+        {
+            if(_scoreText)
+                _scoreText.text = $"{_scoreCounterSystem.Score.ToString("0.0")}";
+            if(_highScoreText)
+                _highScoreText.text = $"{_scoreCounterSystem.HighScore.ToString("0.0")}";
         }
     }
 }

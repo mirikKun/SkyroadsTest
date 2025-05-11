@@ -4,7 +4,7 @@ namespace Code.Gameplay.Windows
 {
     public class BaseWindow : MonoBehaviour
     {
-        public WindowId Id { get; protected set; }
+        [field:SerializeField]public WindowId Id { get; protected set; }
 
         private void Awake() =>
             OnAwake();

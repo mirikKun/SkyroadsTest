@@ -14,7 +14,14 @@ namespace Code.Gameplay.LevelGenerator.LevelChunks
         public float ChunkLength => _chunkSize.y;
         public Vector2 ChunkSize => _chunkSize;
         public List<Obstacle> Obstacles => _obstacles;
-        
+
+        public void CheckObstaclesOnPass()
+        {
+            foreach (Obstacle obstacle in _obstacles)
+            {
+                obstacle.CheckOnPlayerPassing();
+            }
+        }
         public void SetObstaclesRadiusMultiplier(float multiplier)
         {
             _radiusMultiplier= multiplier;

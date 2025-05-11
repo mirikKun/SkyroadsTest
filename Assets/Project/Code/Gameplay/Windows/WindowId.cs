@@ -2,6 +2,9 @@
 {
     public enum WindowId
     {
-        PauseWindow = 0,
+        Unknown=0,
+        PressAnyKeyWindow = 1,
+        GameOverWindow = 2,
+        GamePlayHud = 3,
     }
 }

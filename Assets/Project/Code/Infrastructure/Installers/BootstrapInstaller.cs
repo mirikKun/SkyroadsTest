@@ -1,5 +1,7 @@
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Effects.Factories;
+using Code.Gameplay.GameOver.Systems;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.LevelGenerator.Factories;
 using Code.Gameplay.LevelGenerator.Systems;
@@ -8,6 +10,7 @@ using Code.Gameplay.Player.Factories;
 using Code.Gameplay.Player.Systems;
 using Code.Gameplay.ScoreCounter.Systems;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.Factory;
@@ -28,6 +31,7 @@ namespace Code.Infrastructure.Installers
             BindStateMachine();
             BindGameStates();
             BindGameplayFactories();
+            BindUIServices();
             BindInfrastructureServices();
             BindAssetManagementServices();
             BindCommonServices();
@@ -55,6 +59,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameplayEnterState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameplayWaitForKeyState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameloopLoopState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
         }
 
 
@@ -65,12 +70,15 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IObstacleGeneratorSystem>().To<ObstacleGeneratorSystem>().AsSingle();
             Container.Bind<IScoreCounterSystem>().To<ScoreCounterSystem>().AsSingle();
             Container.Bind<IPassedObstaclesCounterSystem>().To<PassedObstaclesCounterSystem>().AsSingle();
+            Container.Bind<IGameOverSystem>().To<GameOverSystem>().AsSingle();
         }
 
         private void BindGameplayFactories()
         {
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
             Container.Bind<ILevelFactory>().To<LevelFactory>().AsSingle();
+            Container.Bind<IEffectsFactory>().To<EffectsFactory>().AsSingle();
+            Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
         }
 
         private void BindGameplayServices()
@@ -93,7 +101,10 @@ namespace Code.Infrastructure.Installers
         {
             Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
         }
-
+        private void BindUIServices()
+        {
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+        }
         private void BindCommonServices()
         {
             Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();

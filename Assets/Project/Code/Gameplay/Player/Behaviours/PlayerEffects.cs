@@ -59,6 +59,9 @@ namespace Code.Gameplay.Player.Behaviours
             _playerMoverSystem.StoppedBoost-= OnPlayerStoppedBoost;
             _playerMoverSystem.SideMoveStarted-= OnPlayerSideMoveStarted;
             _playerMoverSystem.SideMoveStopped-= OnPlayerSideMoveStopped;
+
+            _fovChangeTween.Kill();
+            _rotateTween.Kill();
         }
         private void OnPlayerSideMoveStopped()
         {

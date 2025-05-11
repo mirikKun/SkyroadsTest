@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400782cc7c8548cc9028ff9dc23988cd, type: 3}
   m_Name: WindowConfigs
   m_EditorClassIdentifier: 
-  WindowConfigs: []
+  WindowConfigs:
+  - Id: 1
+    Prefab: {fileID: 8913139553430911739, guid: 2d6abfbfca0b45848ad0075cb32a4b6e, type: 3}
+  - Id: 3
+    Prefab: {fileID: 4745044545367461550, guid: a12d6fa0d8f8e21409e2dd3014255548, type: 3}
+  - Id: 2
+    Prefab: {fileID: 4228870388169304077, guid: ffaf4a5ab64802d4db903a91a3c2cedc, type: 3}

@@ -28,14 +28,14 @@ namespace Code.Gameplay.LevelGenerator.Obstacles
         private void Update()
         {
             RotateView();
-            CheckOnPlayerPassing();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<PlayerMover>(out PlayerMover playerMover))
+            if (other.TryGetComponent<PlayerContainer>(out PlayerContainer playerContainer))
             {
                 Debug.Log("Death");
+                playerContainer.Die();
             }
         }
 
@@ -45,7 +45,7 @@ namespace Code.Gameplay.LevelGenerator.Obstacles
             _playerTransform = playerTransform;
         }
 
-        private void CheckOnPlayerPassing()
+        public void CheckOnPlayerPassing()
         {
             if(!_playerPassed)
             {

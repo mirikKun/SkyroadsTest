@@ -4,6 +4,7 @@ namespace Code.Gameplay.ScoreCounter.Systems
     {
         float Score { get; }
         float HighScore { get; }
+        bool HasNewHighScore { get; }
         void UpdateScore();
         void ResetScore();
     }

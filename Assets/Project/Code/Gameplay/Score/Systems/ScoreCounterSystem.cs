@@ -11,6 +11,7 @@ namespace Code.Gameplay.ScoreCounter.Systems
         private readonly ITimeService _timeService;
         private readonly IProgressProvider _progressProvider;
         private const float PlayerInBoostScoreMultiplier = 2f;
+        public bool HasNewHighScore{ get; private set; }
         public float Score { get; private set; }
         public float HighScore=>_progressProvider.ProgressData.HighScore;
 
@@ -31,6 +32,7 @@ namespace Code.Gameplay.ScoreCounter.Systems
             {
                 _progressProvider.ProgressData.HighScore = Score;
                 _progressProvider.SaveProgress();
+                HasNewHighScore = true;
             }
         }
         
@@ -38,6 +40,7 @@ namespace Code.Gameplay.ScoreCounter.Systems
         public void ResetScore()
         {
             Score = 0;
+            HasNewHighScore= false;
         }
     }
 }

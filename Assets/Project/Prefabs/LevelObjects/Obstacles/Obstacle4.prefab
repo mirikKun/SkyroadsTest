@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.3
+  m_Radius: 6.34
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1056107837875554544
 MonoBehaviour:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4481c7128586454f98127ef512e1840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleRadius: 2.3
+  _obstacleRadius: 6.2
   _randomSpeed: {x: 2, y: 15}
   _rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1001 &6705693798438676809
@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428418, guid: 22a82758e12490543851605b45080dc7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428418, guid: 22a82758e12490543851605b45080dc7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428418, guid: 22a82758e12490543851605b45080dc7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2750001
+      value: 3.4000003
       objectReference: {fileID: 0}
     - target: {fileID: 428418, guid: 22a82758e12490543851605b45080dc7, type: 3}
       propertyPath: m_LocalPosition.x
