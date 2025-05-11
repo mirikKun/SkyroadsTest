@@ -23,4 +23,4 @@ MonoBehaviour:
   <ObstacleGridFrequency>k__BackingField: 2
   <LevelChunkPrefab>k__BackingField: {fileID: 4418083855607515518, guid: 97990d21bdb470047b98affa2d5b33d2, type: 3}
   <AheadOffset>k__BackingField: 180
-  <BackwardOffset>k__BackingField: -70
+  <BackwardOffset>k__BackingField: 80

@@ -15,4 +15,4 @@ MonoBehaviour:
   <ForwardSpeed>k__BackingField: 15
   <SideSpeed>k__BackingField: 6
   <BoostSpeedMultiplier>k__BackingField: 2
-  <RoadBorders>k__BackingField: {x: -9, y: 9}
+  <RoadBorders>k__BackingField: {x: -12, y: 12}
