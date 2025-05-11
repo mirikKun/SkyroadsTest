@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 1056107837875554544, guid: a2ed6120e444d5443ae8d5be7416f36b, type: 3}
   - {fileID: 2981988565742600244, guid: 5f5a5770db99d9147975b7bb871532ed, type: 3}
   - {fileID: 3995750906286673850, guid: f85176c8cdca30c4087564f99041a13a, type: 3}
-  <Offset>k__BackingField: {x: 0, y: 1, z: 0}
+  <Offset>k__BackingField: {x: 0, y: 2.4, z: 0}
   <ObstacleGridFrequency>k__BackingField: 2
   <LevelChunkPrefab>k__BackingField: {fileID: 4418083855607515518, guid: 97990d21bdb470047b98affa2d5b33d2, type: 3}
-  <AheadOffset>k__BackingField: 90
+  <AheadOffset>k__BackingField: 130
   <BackwardOffset>k__BackingField: 50

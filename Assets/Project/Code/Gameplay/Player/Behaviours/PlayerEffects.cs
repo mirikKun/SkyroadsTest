@@ -30,7 +30,7 @@ namespace Code.Gameplay.Player.Behaviours
         [SerializeField] private Ease _playerEndTiltEase = Ease.OutBack;
 
         [Space]
-        [SerializeField] private TrailRenderer _trailEffect ;
+        [SerializeField] private GameObject _trailEffect ;
 
 
         private CinemachineVirtualCamera _camera;
@@ -75,12 +75,12 @@ namespace Code.Gameplay.Player.Behaviours
         private void OnPlayerStoppedBoost()
         {
             ChangeFOV(_camera,_normalFov, _fovChangeDuration);
-            _trailEffect.enabled=false;
+            _trailEffect.SetActive(false);
         }
         private void OnPlayerStartedBoost()
         {
             ChangeFOV(_camera,_boostedFov, _fovChangeDuration);
-            _trailEffect.enabled=true;
+            _trailEffect.SetActive(true);
 
         }
         private void RotatePlayerView(float angle, float duration,Ease ease)

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb8d8c2714347cab364a026b097c8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chunkSize: {x: 18, y: 40}
+  _chunkSize: {x: 16, y: 40}
 --- !u!1 &2018935254580640367
 GameObject:
   m_ObjectHideFlags: 0
