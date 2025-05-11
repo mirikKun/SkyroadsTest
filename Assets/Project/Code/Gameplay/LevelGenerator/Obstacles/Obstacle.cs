@@ -24,6 +24,7 @@ namespace Code.Gameplay.LevelGenerator.Obstacles
         {
             int randomSign = Random.Range(0, 2) == 0 ? -1 : 1;
             _currentSpeed = randomSign * Random.Range(_randomSpeed.x, _randomSpeed.y);
+            transform.rotation *= Quaternion.Euler(_rotationAxis * (Random.Range(0, 360)));
         }
 
         private void Update()
@@ -61,8 +62,7 @@ namespace Code.Gameplay.LevelGenerator.Obstacles
 
         private void RotateView()
         {
-            transform.rotation =
-                transform.rotation * Quaternion.Euler(_rotationAxis * (_currentSpeed * Time.deltaTime));
+            transform.rotation *= Quaternion.Euler(_rotationAxis * (_currentSpeed * Time.deltaTime));
         }
     }
 }

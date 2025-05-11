@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 7.2
+  m_Radius: 6.9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2981988565742600244
 MonoBehaviour:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4481c7128586454f98127ef512e1840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleRadius: 7
+  _obstacleRadius: 6.4
   _randomSpeed: {x: 2, y: 15}
   _rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1001 &5320044283612455151
@@ -88,11 +88,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.3458645
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.3458645
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_LocalPosition.z
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422758, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2342308, guid: 803908dc1c2d8e74683b5390b9dcc847, type: 3}
       propertyPath: m_Materials.Array.data[0]

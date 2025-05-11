@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872cf3294e78436987ffbceb44a46152, type: 3}
   m_Name: PlayerMovementConfig
   m_EditorClassIdentifier: 
-  <ForwardSpeed>k__BackingField: 15
-  <SideSpeed>k__BackingField: 6
+  <ForwardSpeed>k__BackingField: 19
+  <SideSpeed>k__BackingField: 7
   <BoostSpeedMultiplier>k__BackingField: 2
   <RoadBorders>k__BackingField: {x: -12, y: 12}
